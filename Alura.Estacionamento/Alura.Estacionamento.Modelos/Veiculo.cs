@@ -11,7 +11,6 @@ namespace Alura.Estacionamento.Modelos
         private TipoVeiculo _tipo;
 
         //Propriedades   
-
         public string Placa
         {
             get
@@ -63,10 +62,7 @@ namespace Alura.Estacionamento.Modelos
         public double Largura { get; set; }
         public double VelocidadeAtual { get; set; }
         public string Modelo { get; set; }
-        public string Proprietario
-        {
-            get; set;
-        }
+        public string Proprietario { get; set; }
         public DateTime HoraEntrada { get; set; }
         public DateTime HoraSaida { get; set; }
         public TipoVeiculo Tipo { get => _tipo; set => _tipo = value; }
@@ -93,6 +89,12 @@ namespace Alura.Estacionamento.Modelos
             Proprietario = proprietario;
         }
 
-
+        public void AlterarDados(Veiculo veiculoAlterado)
+        {
+            this.Proprietario = veiculoAlterado.Proprietario;
+            this.Modelo = veiculoAlterado.Modelo;
+            this.Largura = veiculoAlterado.Largura;
+            this.Cor = veiculoAlterado.Cor;
+        }
     }
 }
