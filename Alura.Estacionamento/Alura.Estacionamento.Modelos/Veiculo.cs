@@ -50,12 +50,9 @@ namespace Alura.Estacionamento.Modelos
             }
         }
         /// <summary>
-        /// { get; set; } cria uma propriedade automática, ou seja,
-        /// durante a compilação, é gerado um atributo para armazenar
-        /// o valor da propriedade e os metodos get e set, respectivamente,
-        /// lêem e escrevem diretamente no atributo gerado, sem
-        /// qualquer validação. É um recurso útil, pois as propriedades
-        /// permitem fazer melhor uso do recurso de Reflection do .Net
+        /// { get; set; } cria uma propriedade automática, ou seja, durante a compilação, é gerado um atributo para armazenar
+        /// o valor da propriedade e os metodos get e set, respectivamente, lêem e escrevem diretamente no atributo gerado, sem
+        /// qualquer validação. É um recurso útil, pois as propriedades permitem fazer melhor uso do recurso de Reflection do .Net
         /// Framework, entre outros benefícios.
         /// </summary>
         public string Cor { get; set; }
@@ -95,6 +92,16 @@ namespace Alura.Estacionamento.Modelos
             this.Modelo = veiculoAlterado.Modelo;
             this.Largura = veiculoAlterado.Largura;
             this.Cor = veiculoAlterado.Cor;
+        }
+
+        public override string ToString()
+        {
+            return $"Ficha do Veículo:\n "
+                + $"Tipo do Veículo: {this.Tipo.ToString()}\n "
+                + $"Proprietatio: {this.Proprietario}\n "
+                + $"Modelo: {this.Modelo}\n "
+                + $"Cor: {this.Cor}\n "
+                + $"Placa: {this.Placa}\n ";
         }
     }
 }
