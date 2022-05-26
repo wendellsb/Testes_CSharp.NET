@@ -77,7 +77,35 @@ namespace Alura.Estacionamento.Testes
             string dados = veiculo.ToString();
 
             // Assert --- Contains - verifica se tem o determinado valor dentro de uma string
-            Assert.Contains("Tipo do Veículo", dados);
+            Assert.Contains("Ficha do Veículo", dados);
+        }
+
+        [Fact]
+        public void TestaNomeProprietarioVeiculoComMenosDeTresCaracteres()
+        {
+            // Arrange
+            string nomeProprietario = "Ab";
+
+            // Assert
+            // Metodo Throws tem que passar o parametro da exceção que espera receber 
+            Assert.Throws<System.FormatException>(
+                // Act
+                () => new Veiculo(nomeProprietario));
+        }
+
+        [Fact]
+        public void TestaMensagemDeExcecaoDoQuartoCaractereDaPlaca()
+        {
+            // Arrange
+            string placa = "ASDF8888";
+
+            // Act
+            var mensagem = Assert.Throws<System.FormatException>(
+                () => new Veiculo().Placa = placa
+                );
+
+            // Assert
+            Assert.Equal("O 4° caractere deve ser um hífen", mensagem.Message);
         }
 
         public void Dispose()
