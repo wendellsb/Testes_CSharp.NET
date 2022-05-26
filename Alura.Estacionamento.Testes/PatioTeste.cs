@@ -9,20 +9,28 @@ namespace Alura.Estacionamento.Testes
     public class PatioTeste : IDisposable
     {
         private Veiculo veiculo;
+        private Operador operador;
         public ITestOutputHelper SaidaConsoleTeste;
         public PatioTeste(ITestOutputHelper _saidaConsoleTeste)
         {
             SaidaConsoleTeste = _saidaConsoleTeste;
             SaidaConsoleTeste.WriteLine("Construtor invocado.");
             veiculo = new Veiculo();
+            operador = new Operador();
+            operador.Nome = "Pedro Fagundes";
         }
 
         //O [Fact] declara um método de teste que é executado.
         [Fact]
-        public void ValidaFaturamentoDoEscionamentoComVeiculo() // testando o metodo TotalFaturado()
+        public void ValidaFaturamentoDoEscionamentoComUmVeiculo() // testando o metodo TotalFaturado()
         {
             // Arrange
             var estacionamento = new Patio();
+            //Operador operador = new Operador();
+            //operador.Nome = "Pedro Fagundes";
+
+            estacionamento.OperadorPatio = operador;
+
             //var veiculo = new Veiculo();
             veiculo.Proprietario = "André Silva";
             veiculo.Tipo = TipoVeiculo.Automovel;
@@ -53,6 +61,7 @@ namespace Alura.Estacionamento.Testes
         {
             // Arrange
             var estacionamento = new Patio();
+            estacionamento.OperadorPatio = operador;
             //var veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Placa = placa;
@@ -77,6 +86,7 @@ namespace Alura.Estacionamento.Testes
         {
             // Arrange
             var estacionamento = new Patio();
+            estacionamento.OperadorPatio = operador;
             //var veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Placa = placa;
@@ -97,6 +107,7 @@ namespace Alura.Estacionamento.Testes
         {
             // Arrange
             var estacionamento = new Patio();
+            estacionamento.OperadorPatio = operador;
             //var veiculo = new Veiculo();
             veiculo.Proprietario = "José Silva";
             veiculo.Placa = "ZXC-8524";
