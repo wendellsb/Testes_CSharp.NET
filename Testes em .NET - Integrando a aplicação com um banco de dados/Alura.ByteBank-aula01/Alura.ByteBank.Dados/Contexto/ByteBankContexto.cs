@@ -6,13 +6,14 @@ namespace Alura.ByteBank.Dados.Contexto
 {
     public class ByteBankContexto:DbContext
     {
+        
         public DbSet<ContaCorrente> ContaCorrentes { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Agencia> Agencias { get; set; }
        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string stringconexao = "server=localhost;DataBase=bytebankBD;Uid=root;Pwd=root";
+            string stringconexao = "server=localhost;DataBase=bytebankbd;Uid=root;Pwd=wendellzl";
             optionsBuilder.UseMySql(stringconexao, ServerVersion.AutoDetect(stringconexao));
         }
 
